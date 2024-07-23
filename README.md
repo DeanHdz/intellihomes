@@ -1,0 +1,2 @@
+# intellihomes
+Intellihomes static webpage
