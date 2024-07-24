@@ -15,54 +15,55 @@ h1, h2{
 }
 
 header{
-    display: block;
-    width: 100vw;
     position: fixed;
+    display: flex;
+    width: 100vw;
     align-items: center;
     background-color: transparent;
     transition: background-color 0.5s ease;
+    animation: fadeIn-upwards 1.5s ease;
 }
 
 header > img{
     display: inline-flex;
-    max-height: 20vh;
+    max-height: 15vh;
     transition: max-height 0.5s ease;
+    padding-left: 16px;
 }
 
 nav{
     display: inline-flex;
-    border-radius: 10px;
-    background-color: transparent;
-    transition: background-color 0.5s ease;
+    width: 100%;
+    justify-content: end;
+    padding-right: 24px;
 }
 
 nav ul{
     list-style: none;
     display: flex;
     justify-content: center;
+    text-transform: uppercase;
+    flex-flow: wrap;
 }
 
 nav ul li a{
     text-decoration: none;
+    text-align: center;
     color: white;
     padding: 10px 15px;
     display: block;
 }
 
 nav ul li a:hover{
-    background-color: #4c4c4c;
+    text-decoration: underline;
 }
 
-.scrolled-bg{
+.scrolled-header{
     background-color: rgb(138, 210, 255);
 }
 
 .scrolled-logo{
-    max-height: 100px;
-}
-
-.scrolled-nav{
-    background-color: #2c2c2c;
+    max-height: 10vh;
 }
 
 main{
@@ -75,51 +76,46 @@ main{
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-    width: 100vw;
-    display: flexbox;
+    display: flex;
     justify-content: start;
     align-items: center;
-    color: white;
-}
-
-#slogan{
-    position: absolute;
-    color: white;
-    text-align: start;
-    text-transform: uppercase;
 }
 
 #welcome{
-    position: absolute;
-    border-radius: 16px;
-    padding: 8px 16px;
-    text-transform: uppercase;
-    display: inline-flex;
+    margin-left: 32px;
+    animation: fadeIn-upwards 1.5s ease;
 }
 
-#contacto{
+#welcome > p{
+    text-align: start;
+    text-transform: uppercase;
+    color: white;
+    font-size: 2.5rem;
+}
+
+#welcome > a > div{
     position: absolute;
-    border-radius: 16px;
-    padding: 8px 16px;
+    margin-top: 32px;
+    border-radius: 24px;
+    padding: 12px 48px;
     text-transform: uppercase;
     background-color: rgb(237, 194, 85);
-    display: inline-flex;
+    color: black;
+    font-weight: 600;
+    display: block;
+}
+
+#welcome > a > div:hover{
+    background-color: rgb(255, 219, 56);
+    color: black;
+    transition: 0.5s;
+    text-decoration: underline;
 }
 
 section {
     display: flex;
     margin-top: 20px;
     margin-bottom: 20px;
-}
-
-@media (min-width: 768px) {
-    section {
-        margin-left: 10%;
-        margin-right: 10%;
-    }
-    #parallax-bg {
-        background-size: cover; 
-    }
 }
 
 #promo{
@@ -145,4 +141,34 @@ section {
 
 footer{
 
+}
+
+@keyframes fadeIn-upwards{
+    0%{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Vista superior al de un celular*/
+@media (min-width: 768px) {
+    nav ul li a{
+        font-size: 1rem;
+    }
+    #welcome > p{
+        font-size: 3.5rem;
+    }
+    section {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
+/* Vista superior al de una tablet*/
+@media (min-width: 1024px) {
+    
 }
