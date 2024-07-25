@@ -60,14 +60,25 @@ nav ul li a{
     display: block;
 }
 
+nav ul li a:hover{
+    text-decoration: underline;
+}
+
 /* usar un selector de ultimo elemento de la lista ul para agregar un contorno border */
-nav > ul > li:last-child{
+nav ul > li:last-child{
     border: 1px solid cyan;
     border-radius: 24px;
 }
 
-nav ul li a:hover{
-    text-decoration: underline;
+nav ul > li:last-child:hover{
+    background-color: cyan;
+    transition: 0.5s;
+}
+
+nav ul > li:last-child a:hover{
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
 }
 
 .scrolled-header{
