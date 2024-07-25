@@ -10,7 +10,6 @@ setInterval(() => {
     } else {
         i++;
     }
-    console.log(i);
 }, 5500);
 
 //Manejar visualizacion del header al hacer scroll hacia abajo
