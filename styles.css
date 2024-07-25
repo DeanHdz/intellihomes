@@ -140,6 +140,12 @@ section {
     margin-top: 20px;
     margin-bottom: 20px;
     color: white;
+    text-align: center;
+}
+
+section > svg{
+    height: 4em;
+    width: 4em;
 }
 
 section > div{
@@ -153,6 +159,36 @@ section > div{
 .card{
     margin: 16px;
     width: 100%;
+}
+
+.bundle{
+    background-color: rgb(0, 120, 185);
+    padding: 24px;
+    margin: 16px;
+    border-radius: 24px;
+    text-align: start;
+    justify-content: center;
+    align-items: center;
+}
+
+.freq > h3{
+    font-style: italic;
+}
+
+.freq > h3::before, .freq > h3::after{
+    content: '"';
+}
+
+.bundle:hover{
+    background-color: rgb(0, 150, 225);
+    transition: 0.5s;
+}
+
+.bundle p:last-child{
+    margin-top: 16px;
+    font-size: larger;
+    text-align: center;
+    font-weight: bold;
 }
 
 section > div p{
@@ -230,6 +266,11 @@ footer{
     .svg-bg > svg{
         height: 5em;
         width: 5em;
+    }
+    .bundle:hover{
+        background-color: rgb(0, 150, 225);
+        transform: scale(1.1);
+        transition: 0.5s;
     }
 }
 
