@@ -6,10 +6,14 @@
 
 body{
     font-family: 'Poppins', sans-serif;
-    background-color: #fefefe;
+    background-color: #0099ff;
 }
 
-h1, h2{
+h1{
+    font-size: 2.5rem;
+}
+
+h1, h2, h3{
     text-align: center;
     margin-bottom: 20px;
 }
@@ -136,13 +140,25 @@ main{
 }
 
 section {
-    display: flex;
+    display: block;
     margin-top: 20px;
     margin-bottom: 20px;
+    color: white;
 }
 
-#promo{
-    display: block;
+section > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.svg-bg{
+    background-color: rgb(237, 194, 85);
+    display: inline-flex;
+    border-radius: 100%;
+    padding: 24px;
+    margin: 16px;
 }
 
 #promo-bg{
@@ -166,6 +182,7 @@ footer{
 
 }
 
+/* animaciones */
 @keyframes fadeIn-upwards{
     0%{
         opacity: 0;
@@ -197,6 +214,7 @@ footer{
         font-size: 3.5rem;
     }
     section {
+        font-size: 1rem;
         margin-left: 10%;
         margin-right: 10%;
     }
