@@ -231,7 +231,6 @@ section > div p{
 }
 
 footer{
-    display: block;
     background-color: rgb(90, 90, 90);
     color: whitesmoke;
     padding: 16px;
@@ -240,11 +239,27 @@ footer{
     font-weight: 600;
 }
 
-footer div{
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: start;
+#contact{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+#contact > div{
+    display: inline-block;
+}
+
+.social-icon{
+    display: inline-block;
+    margin: 8px 0;
+}
+
+.social-icon > a{
+    font-size: 0.75rem;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    padding: 10px 15px;
 }
 
 footer h1, footer h2, footer h3{
