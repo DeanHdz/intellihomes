@@ -250,6 +250,7 @@ footer{
 }
 
 .social-icon{
+    align-items: center;
     display: inline-block;
     margin: 8px 0;
 }
