@@ -93,10 +93,6 @@ nav ul > li:last-child a:hover{
     max-height: 10vh;
 }
 
-main{
-    
-}
-
 #background{
     background-position: center;
     background-repeat: no-repeat;
@@ -149,8 +145,18 @@ section {
 section > div{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
     text-align: center;
+    flex-flow: wrap;
+}
+
+.card{
+    margin: 16px;
+    width: 100%;
+}
+
+section > div p{
+    text-align: justify;
 }
 
 .svg-bg{
@@ -217,6 +223,13 @@ footer{
         font-size: 1rem;
         margin-left: 10%;
         margin-right: 10%;
+    }
+    section > div{
+        flex-wrap: nowrap;
+    }
+    .svg-bg > svg{
+        height: 5em;
+        width: 5em;
     }
 }
 
