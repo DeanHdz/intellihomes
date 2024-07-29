@@ -245,39 +245,20 @@ section>div p {
 
 .gallery {
     display: flex;
-    gap: 16px;
     justify-content: center;
     align-items: center;
-    flex-flow: wrap;
+    gap: 16px;
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
     gap: 16px;
+    flex-direction: column;
 }
 
-.gallery-item {
-    width: 100%;
-    border-radius: 5px;
+.gallery-item :is(video, img) {
+    max-width: 100%;
+    border-radius: 16px;
     object-fit: cover;
-}
-
-#promo-bg {
-    background-color: #0cacdd;
-    border-radius: 10px;
-    padding: 20px;
-    background-image: url("assets/images/casas-inteligentes.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: white;
-    height: auto;
-}
-
-#promo-bg:hover {
-    transition: 0.5s;
-    transform: scale(1.02);
 }
 
 footer {
@@ -390,3 +371,26 @@ footer h3 {
 
 /* Vista superior al de una tablet*/
 @media (min-width: 1024px) {}
+
+
+
+
+
+/* UNUSED */
+
+#promo-bg {
+    background-color: #0cacdd;
+    border-radius: 10px;
+    padding: 20px;
+    background-image: url("assets/images/casas-inteligentes.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    height: auto;
+}
+
+#promo-bg:hover {
+    transition: 0.5s;
+    transform: scale(1.02);
+}
