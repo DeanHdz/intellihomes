@@ -1,53 +1,70 @@
-*{
+* {
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: 'Poppins', sans-serif;
     background-color: #0099ff;
 }
 
-h1{
+/* Por default todo es considerando un diseño para celular */
+
+h1 {
     font-size: 2.5rem;
 }
 
-h1, h2, h3{
+h1,
+h2,
+h3 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-header{
+header {
     position: fixed;
     z-index: 1;
     display: block;
     width: 100%;
-    align-items: center;
     background-color: transparent;
     transition: background-color 0.5s ease;
     animation: fadeIn-upwards 1.5s ease;
 }
 
-/* Por default todo es considerando un diseño para celular */
-
-header > img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 15vh;
-    transition: max-height 0.5s ease;
+header>div {
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 
-nav{
-    display: inline-flex;
+#nav-burger {
+    margin-left: 24px;
+    position: absolute;
+}
+
+#logo {
+    max-height: 15vh;
+    transition: max-height 0.5s ease;
+    margin: 8px auto;
+    background-color: aliceblue;
+    border-radius: 24px;
+}
+
+nav {
+    max-height: 0;
     width: 100%;
-    justify-content: center;
     background-color: rgb(90, 90, 90);
+    transition: padding 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+nav.show{
+    max-height: fit-content;
     padding: 8px 0;
 }
 
-nav ul{
+nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
@@ -55,7 +72,7 @@ nav ul{
     flex-flow: wrap;
 }
 
-nav ul li a{
+nav ul li a {
     font-size: 0.75rem;
     text-decoration: none;
     text-align: center;
@@ -64,36 +81,40 @@ nav ul li a{
     display: block;
 }
 
-nav ul li a:hover{
+nav ul li a:hover {
     text-decoration: underline;
 }
 
 /* usar un selector de ultimo elemento de la lista ul para agregar un contorno border */
-nav ul > li:last-child{
+nav ul>li:last-child {
     border: 1px solid cyan;
     border-radius: 24px;
 }
 
-nav ul > li:last-child:hover{
+nav ul>li:last-child:hover {
     background-color: cyan;
     transition: 0.5s;
 }
 
-nav ul > li:last-child a:hover{
+nav ul>li:last-child a:hover {
     text-decoration: none;
     color: black;
     transition: 0.5s;
 }
 
-.scrolled-header{
+header.scrolled{
     background-color: rgb(169, 215, 244);
 }
 
-.scrolled-logo{
+#logo.scrolled{
     max-height: 10vh;
 }
 
-#background{
+#burger.scrolled{
+    stroke: grey;
+}
+
+#background {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -104,19 +125,19 @@ nav ul > li:last-child a:hover{
     transition: background-image 1.5s ease;
 }
 
-#welcome{
+#welcome {
     margin-left: 32px;
     animation: fadeIn-upwards 1.5s ease;
 }
 
-#welcome > p{
+#welcome>p {
     text-align: start;
     text-transform: uppercase;
     color: white;
     font-size: 2.5rem;
 }
 
-#welcome > a > div{
+#welcome>a>div {
     position: absolute;
     margin-top: 32px;
     border-radius: 24px;
@@ -128,7 +149,7 @@ nav ul > li:last-child a:hover{
     display: block;
 }
 
-#welcome > a > div:hover{
+#welcome>a>div:hover {
     background-color: rgb(255, 219, 56);
     color: black;
     transition: 0.5s;
@@ -143,12 +164,12 @@ section {
     text-align: center;
 }
 
-section > svg{
+section>svg {
     height: 4em;
     width: 4em;
 }
 
-section > div{
+section>div {
     display: flex;
     justify-content: center;
     align-items: baseline;
@@ -156,20 +177,20 @@ section > div{
     flex-flow: wrap;
 }
 
-.card{
+.card {
     margin: 16px;
     width: 100%;
 }
 
-.card img{
+.card img {
     max-width: 100%;
 }
 
-.card video{
+.card video {
     max-width: 100%;
 }
 
-.bundle{
+.bundle {
     background-color: rgb(0, 120, 185);
     padding: 24px;
     margin: 16px;
@@ -179,20 +200,21 @@ section > div{
     align-items: center;
 }
 
-.freq > h3{
+.freq>h3 {
     font-style: italic;
 }
 
-.freq > h3::before, .freq > h3::after{
+.freq>h3::before,
+.freq>h3::after {
     content: '"';
 }
 
-.bundle:hover{
+.bundle:hover {
     background-color: rgb(0, 150, 225);
     transition: 0.5s;
 }
 
-.bundle p:nth-last-child(2){
+.bundle p:nth-last-child(2) {
     margin-top: 16px;
     color: gold;
     text-decoration: line-through;
@@ -201,7 +223,7 @@ section > div{
     font-weight: bold;
 }
 
-.bundle p:last-child{
+.bundle p:last-child {
     margin-top: 16px;
     color: gold;
     font-size: larger;
@@ -209,11 +231,11 @@ section > div{
     font-weight: bold;
 }
 
-section > div p{
+section>div p {
     text-align: justify;
 }
 
-.svg-bg{
+.svg-bg {
     background-color: rgb(237, 194, 85);
     display: inline-flex;
     border-radius: 100%;
@@ -221,7 +243,7 @@ section > div p{
     margin: 16px;
 }
 
-.gallery{
+.gallery {
     display: flex;
     gap: 16px;
     justify-content: center;
@@ -229,19 +251,19 @@ section > div p{
     flex-flow: wrap;
 }
 
-.column{
+.column {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-.gallery-item{
+.gallery-item {
     width: 100%;
     border-radius: 5px;
     object-fit: cover;
 }
 
-#promo-bg{
+#promo-bg {
     background-color: #0cacdd;
     border-radius: 10px;
     padding: 20px;
@@ -253,12 +275,12 @@ section > div p{
     height: auto;
 }
 
-#promo-bg:hover{
+#promo-bg:hover {
     transition: 0.5s;
     transform: scale(1.02);
 }
 
-footer{
+footer {
     background-color: rgb(90, 90, 90);
     color: whitesmoke;
     padding: 16px;
@@ -267,23 +289,23 @@ footer{
     font-weight: 600;
 }
 
-#contact{
+#contact {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
 }
 
-#contact > div{
+#contact>div {
     display: inline-block;
 }
 
-.social-icon{
+.social-icon {
     align-items: center;
     display: inline-block;
     margin: 8px 0;
 }
 
-.social-icon > a{
+.social-icon>a {
     font-size: 0.75rem;
     text-decoration: none;
     text-align: center;
@@ -291,17 +313,20 @@ footer{
     padding: 10px 15px;
 }
 
-footer h1, footer h2, footer h3{
+footer h1,
+footer h2,
+footer h3 {
     text-align: start;
 }
 
 /* animaciones */
-@keyframes fadeIn-upwards{
-    0%{
+@keyframes fadeIn-upwards {
+    0% {
         opacity: 0;
         transform: translateY(20px);
     }
-    100%{
+
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
@@ -309,36 +334,57 @@ footer h1, footer h2, footer h3{
 
 /* Vista superior al de un celular*/
 @media (min-width: 768px) {
-    header{
+    header {
         display: flex;
+        align-items: center;
     }
-    header img{
-        padding-left: 16px;
+
+    header>div {
+        display: flex;
+        width: auto;
     }
-    nav{
+
+    #logo{
+        margin: 8px 24px;
+    }
+
+    #nav-burger {
+        display: none;
+    }
+
+    nav {
+        max-height: fit-content;
+        display: flex;
         background-color: transparent;
         padding-right: 24px;
         justify-content: end;
+        overflow: visible;
     }
-    nav ul li a{
+
+    nav ul li a {
         font-size: 1rem;
     }
-    #welcome > p{
+
+    #welcome>p {
         font-size: 3.5rem;
     }
+
     section {
         font-size: 1rem;
         margin-left: 10%;
         margin-right: 10%;
     }
-    section > div{
+
+    section>div {
         flex-wrap: nowrap;
     }
-    .svg-bg > svg{
+
+    .svg-bg>svg {
         height: 5em;
         width: 5em;
     }
-    .bundle:hover{
+
+    .bundle:hover {
         background-color: rgb(0, 150, 225);
         transform: scale(1.1);
         transition: 0.5s;
@@ -346,6 +392,4 @@ footer h1, footer h2, footer h3{
 }
 
 /* Vista superior al de una tablet*/
-@media (min-width: 1024px) {
-    
-}
+@media (min-width: 1024px) {}
