@@ -1,16 +1,17 @@
 //Cambiar imagen de fondo de "background" constantemente, para dar efecto de animacion
-const background = document.getElementById('background');
-background.style.backgroundImage = 'url(assets/images/16x9_1.jpg)';
-const images = ['assets/images/16x9_1.jpg', 'assets/images/16x9_2.png', 'assets/images/16x9_3.png', 'assets/images/16x9_4.png'];
-let i = 1;
+const images = document.querySelectorAll('.background-image');
+let currentIndex = 0;
+// Cambiar imagen cada 5.5 segundos
 setInterval(() => {
-    background.style.backgroundImage = `url(${images[i]})`;
-    if(i == images.length - 1) {
-        i = 0;
-    } else {
-        i++;
-    }
-}, 5500);
+// Guardar el índice de la imagen actual
+let currentImageIndex = currentIndex;
+// Calcular el siguiente índice
+currentIndex = (currentIndex + 1) % images.length;
+// Mostrar la nueva imagen
+images[currentIndex].classList.add('active');
+// Ocultar la imagen actual
+images[currentImageIndex].classList.remove('active');
+}, 10000);
 
 //Manejar visualizacion del header al hacer scroll hacia abajo
 window.addEventListener('scroll', () => {
@@ -37,6 +38,22 @@ window.addEventListener('resize', () => {
         nav.classList.remove('show');
     }
 });
+
+//Manejo del sidebar en vista celular
+function toggleSidebar() {
+    const aside = document.querySelector('aside');
+    const overlay = document.querySelector('#overlay');
+    aside.classList.toggle('show');
+    overlay.classList.toggle('show');
+}
+
+//Cerrar sidebar al hacer click en el overlay (Fondo oscuro)
+document.querySelector('#overlay').addEventListener('click', () => {
+    document.querySelector('aside').classList.remove('show');
+    document.querySelector('#overlay').classList.remove('show');
+});
+
+//NO UTILIZADO
 
 //Manejo del navbar en vista celular
 function toggleNav() {

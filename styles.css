@@ -1,425 +1,606 @@
+/*
+PALETA DE COLORES: 
+#F1F1F1
+#303030
+#52AFE6
+#737373
+#515151
+#2AA4E3
+#2C4170
+#C2CDD3
+#303642
+*/
+
 * {
-    margin: 0%;
-    padding: 0%;
-    box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #0099ff;
+  font-family: "Poppins", sans-serif;
+  background-color: #52afe6;
 }
 
-/* Por default todo es considerando un diseño para celular */
+/* Por default todo es considerando un DISEÑO para CELULAR */
 
 h1 {
-    font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 2.5rem);
 }
 
 h1,
 h2,
 h3 {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 header {
-    position: fixed;
-    z-index: 1;
-    display: block;
-    width: 100%;
-    background-color: transparent;
-    transition: background-color 0.5s ease;
-    animation: fadeIn-upwards 1.5s ease;
+  position: fixed;
+  z-index: 8;
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  transition: background-color 0.5s ease;
+  animation: fadeIn-upwards 1.5s ease;
 }
 
-header>div{
-    display: flex;
-    align-items: center;
+header > div {
+  display: flex;
+  align-items: center;
 }
 
-header>div>div:last-child{ /* div del logo */
-    width: 100%;
-    text-align: center;
+header > div > div:last-child {
+  /* div del logo */
+  width: 100%;
+  text-align: center;
 }
 
 #nav-burger {
-    margin-left: 24px;
-    position: absolute;
+  margin-left: 24px;
+  position: absolute;
 }
 
 #logo {
-    max-height: 15vh;
-    transition: max-height 0.5s ease;
-    margin: 8px auto;
-    background-color: aliceblue;
-    border-radius: 24px;
+  max-height: 15vh;
+  min-height: 50px;
+  object-fit: contain;
+  transition: max-height 0.5s ease;
+  margin: 8px auto;
+  background-color: #f1f1f1;
+  border-radius: 24px;
 }
 
 nav {
-    max-height: 0;
-    width: 100%;
-    background-color: rgb(90, 90, 90);
-    transition: padding 0.3s ease-in-out;
-    overflow: hidden;
+  max-height: 0;
+  width: 100%;
+  background-color: #2c4170;
+  transition: padding 0.3s ease-in-out;
+  overflow: hidden;
 }
 
-nav.show{
-    max-height: fit-content;
-    padding: 8px 0;
+nav.show {
+  max-height: fit-content;
+  padding: 8px 0;
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    text-transform: uppercase;
-    flex-flow: wrap;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  flex-flow: wrap;
 }
 
 nav ul li a {
-    font-size: 0.75rem;
-    text-decoration: none;
-    text-align: center;
-    color: white;
-    padding: 10px 15px;
-    display: block;
+  font-size: 0.75rem;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  padding: 10px 15px;
+  display: block;
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* usar un selector de ultimo elemento de la lista ul para agregar un contorno border */
-nav ul>li:last-child {
-    border: 1px solid cyan;
-    border-radius: 24px;
+nav ul > li:last-child {
+  border: 1px solid #52afe6;
+  border-radius: 24px;
 }
 
-nav ul>li:last-child:hover {
-    background-color: cyan;
-    transition: 0.5s;
+nav ul > li:last-child:hover {
+  background-color: #f1f1f1;
+  transition: 0.5s;
 }
 
-nav ul>li:last-child a:hover {
-    text-decoration: none;
-    color: black;
-    transition: 0.5s;
+nav ul > li:last-child a:hover {
+  text-decoration: none;
+  color: black;
+  transition: 0.5s;
 }
 
-header.scrolled{
-    background-color: rgb(169, 215, 244);
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9;
 }
 
-#logo.scrolled{
-    max-height: 10vh;
+#overlay.show {
+  display: block;
 }
 
-#burger.scrolled{
-    stroke: grey;
+aside {
+  z-index: 10; /* Más alto que el resto */
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  width: 250px;
+  overflow: hidden;
+  background-color: #2c4170;
+  top: 0;
+  left: -100%; /* Oculto fuera de la pantalla por defecto */
+  transition: left 0.3s ease-in-out; /* Transición suave */
+}
+
+aside.show {
+  left: 0; /* Se muestra el sidebar */
+}
+
+aside img {
+  max-width: 50%; /* La imagen no excederá el ancho del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin: 32px;
+  background-color: #c2cdd3;
+  border-radius: 50%; /* Forma circular */
+  padding: 16px;
+}
+
+/*
+PALETA DE COLORES: 
+#F1F1F1
+#303030
+#52AFE6
+#737373
+#515151
+#2AA4E3
+#2C4170
+#C2CDD3
+#303642
+*/
+
+aside ul {
+  list-style: none;
+  display: flex;
+  flex-flow: column;
+  flex: 1; /* Usa el espacio restante */
+}
+
+aside ul li a {
+  text-decoration: none;
+  text-align: start;
+  display: flex; /* Coloca los elementos en fila */
+  align-items: center; /* Centra verticalmente el texto y el SVG */
+  gap: 8px; /* Espaciado entre el SVG y el texto */
+  color: white;
+  padding: 8px;
+  margin: 8px 0;
+  border-radius: 8px;
+  background-color: transparent; /* Fondo transparente por defecto */
+  transition: background-color 0.3s ease; /* Transición suave para el hover */
+}
+
+aside ul li a:hover {
+  background-color: #f1f1f1;
+  color: black;
+  transition: 0.5s;
+}
+
+aside ul li a svg {
+  flex-shrink: 0; /* Evita que el SVG se reduzca si el texto es largo */
+  width: 24px;
+  height: 24px;
+}
+
+aside ul li a p {
+  margin: 0; /* Elimina el margen del texto */
+  flex-grow: 1; /* Asegura que el texto ocupe el espacio restante */
+}
+
+#collapse {
+  display: flex; /* Coloca el SVG y el texto en fila */
+  align-items: center; /* Centra verticalmente los elementos */
+  justify-content: center; /* Centra horizontalmente el contenido */
+  gap: 8px; /* Espaciado entre el SVG y el texto */
+  padding: 12px 16px; /* Espaciado interno */
+  margin: 16px auto; /* Espaciado externo */
+  background-color: #2c4170; /* Fondo del botón */
+  color: white; /* Color del texto y del SVG */
+  border: none; /* Sin bordes */
+  border-radius: 8px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  font-size: 1rem; /* Tamaño del texto */
+  font-family: "Arial", sans-serif; /* Fuente del texto */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Efecto suave para hover */
+}
+
+#collapse:hover {
+  background-color: #405a90; /* Color más claro al pasar el cursor */
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+#collapse:active {
+  background-color: #1e3050; /* Color más oscuro al hacer clic */
+  transform: scale(0.95); /* Reduce ligeramente el tamaño */
+}
+
+#collapse svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0; /* Evita que el SVG se reduzca */
+}
+
+#collapse p {
+  margin: 0; /* Elimina el margen del texto */
+  font-weight: bold; /* Hace que el texto sea más visible */
+}
+
+header.scrolled {
+  background-color: #303030;
+}
+
+#logo.scrolled {
+  max-height: 8vh;
+}
+
+#burger.scrolled {
+  stroke: grey;
 }
 
 #background {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    transition: background-image 1.5s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Para alinear el contenido horizontalmente a la izquierda */
+  justify-content: center; /* Centrar el contenido verticalmente */
+  height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
+  overflow: hidden; /* Evita desbordamientos */
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  /*transition: opacity 1s ease-in; /* Suaviza la transición entre imágenes */
+  opacity: 0;
+  /*animation: slideRight 10s infinite; /* Añade el efecto de zoom */
+}
+
+.background-image.active {
+  opacity: 1;
 }
 
 #welcome {
-    margin-left: 32px;
-    animation: fadeIn-upwards 1.5s ease;
+  position: relative;
+  z-index: 2; /* Asegura que esté por encima de las imágenes */
+  align-items: center;
+  justify-content: center;
+  margin-left: 32px;
+  animation: fadeIn-upwards 1.5s ease;
 }
 
-#welcome>p {
-    text-align: start;
-    text-transform: uppercase;
-    color: white;
-    font-size: 2.5rem;
+#welcome > p {
+  text-align: start;
+  text-transform: uppercase;
+  color: white;
+  font-size: 2.5rem;
 }
 
-#welcome>a>div {
-    position: absolute;
-    margin-top: 32px;
-    border-radius: 24px;
-    padding: 12px 48px;
-    text-transform: uppercase;
-    background-color: rgb(237, 194, 85);
-    color: black;
-    font-weight: 600;
-    display: block;
+#welcome > a > div {
+  position: absolute;
+  margin-top: 32px;
+  border-radius: 24px;
+  padding: 12px 48px;
+  text-transform: uppercase;
+  background-color: #52afe6; 
+  color: black;
+  font-weight: 600;
+  display: block;
 }
 
-#welcome>a>div:hover {
-    background-color: rgb(255, 219, 56);
-    color: black;
-    transition: 0.5s;
-    text-decoration: underline;
+#welcome > a > div:hover {
+  background-color: #2c4170; 
+  color: white;
+  transition: 0.5s;
 }
 
 section {
-    display: block;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: white;
-    text-align: center;
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: white;
+  text-align: center;
 }
 
-section>svg {
-    height: 4em;
-    width: 4em;
+section > svg {
+  height: 4em;
+  width: 4em;
 }
 
-section>div {
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    text-align: center;
-    flex-flow: wrap;
+section > div {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  text-align: center;
+  flex-flow: wrap;
 }
 
 .card {
-    margin: 16px;
-    width: 100%;
+  margin: 16px;
+  width: 100%;
 }
 
 .card img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .card video {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .bundle {
-    background-color: rgb(0, 120, 185);
-    padding: 24px;
-    margin: 16px;
-    border-radius: 24px;
-    text-align: start;
-    justify-content: center;
-    align-items: center;
+  background-color: #2aa4e3;
+  padding: 24px;
+  margin: 16px;
+  border-radius: 24px;
+  text-align: start;
+  justify-content: center;
+  align-items: center;
 }
 
-.freq>h3 {
-    font-style: italic;
+.freq > h3 {
+  font-style: italic;
+  quotes: "“" "”";
 }
 
-.freq>h3::before,
-.freq>h3::after {
-    content: '"';
+.freq > h3::before {
+  content: open-quote;
+}
+
+.freq > h3::after {
+  content: close-quote;
 }
 
 .bundle:hover {
-    background-color: rgb(0, 150, 225);
-    transition: 0.5s;
+  background-color: rgb(0, 150, 225);
+  transition: 0.5s;
 }
 
 .bundle p:nth-last-child(2) {
-    margin-top: 16px;
-    color: gold;
-    text-decoration: line-through;
-    font-size: medium;
-    text-align: center;
-    font-weight: bold;
+  margin-top: 16px;
+  color: gold;
+  text-decoration: line-through;
+  font-size: medium;
+  text-align: center;
+  font-weight: bold;
 }
 
 .bundle p:last-child {
-    margin-top: 16px;
-    color: gold;
-    font-size: larger;
-    text-align: center;
-    font-weight: bold;
+  margin-top: 16px;
+  color: gold;
+  font-size: larger;
+  text-align: center;
+  font-weight: bold;
 }
 
-section>div p {
-    text-align: justify;
+section > div p {
+  text-align: justify;
 }
 
 .svg-bg {
-    background-color: rgb(237, 194, 85);
-    display: inline-flex;
-    border-radius: 100%;
-    padding: 24px;
-    margin: 16px;
+  background-color: #2aa4e3;
+  display: inline-flex;
+  border-radius: 100%;
+  padding: 24px;
+  margin: 16px;
 }
 
 .gallery {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
 }
 
 .column {
-    gap: 16px;
-    flex-direction: column;
+  gap: 16px;
+  flex-direction: column;
 }
 
 .gallery-item :is(video, img) {
-    max-width: 100%;
-    border-radius: 16px;
-    object-fit: cover;
+  max-width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
 }
 
 footer {
-    background-color: rgb(90, 90, 90);
-    color: whitesmoke;
-    margin-top: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
+  background-color: rgb(90, 90, 90);
+  color: whitesmoke;
+  margin-top: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
 }
 
 footer > div {
-    display: flex;
-    padding: 16px;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
+  display: flex;
+  padding: 16px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
-footer > h1{
-    font-size: 1.5rem;
-    padding: 16px;
-    margin-bottom: auto;
+footer > h1 {
+  font-size: 1.5rem;
+  padding: 16px;
+  margin-bottom: auto;
 }
 
 .social-icon {
-    align-items: center;
-    display: inline-block;
-    margin: 8px 0;
+  align-items: center;
+  display: inline-block;
+  margin: 8px 0;
 }
 
-.social-icon>a {
-    font-size: 0.75rem;
-    text-decoration: none;
-    text-align: center;
-    color: white;
-    padding: 10px 15px;
+.social-icon > a {
+  font-size: 0.75rem;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  padding: 10px 15px;
 }
 
 footer h1,
 footer h2,
 footer h3 {
-    text-align: start;
+  text-align: start;
 }
 
-#DeanHdz{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: black;
-    padding: 8px 0;
-    color: white;
+#DeanHdz {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: black;
+  padding: 8px 0;
+  color: white;
 }
 
-#DeanHdz > div{
-    display: flex;
-    align-items: center;
+#DeanHdz > div {
+  display: flex;
+  align-items: center;
 }
 
-#DeanHdz a{
-    color: lightblue;
-    font-weight: 600;
+#DeanHdz a {
+  color: lightblue;
+  font-weight: 600;
 }
 
-/* animaciones */
+/* EFECTOS DE ANIMACIÓN */
+
+/* Animación de aparición */
 @keyframes fadeIn-upwards {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación de desplazamiento hacia la derecha */
+@keyframes slideRight {
+  0% {
+    transform: scale(1.1) translateX(0); /* Sin zoom ni desplazamiento */
+  }
+  100% {
+    transform: scale(1.1) translateX(50%); /* Zoom máximo y desplazamiento final */
+  }
 }
 
 /* Vista superior al de un celular*/
 @media (min-width: 768px) {
-    header {
-        display: flex;
-        align-items: center;
-    }
+  header {
+    display: flex;
+    align-items: center;
+  }
 
-    header>div {
-        display: flex;
-        width: auto;
-    }
+  header > div {
+    display: flex;
+    width: auto;
+  }
 
-    #logo{
-        margin: 8px 24px;
-    }
+  #logo {
+    margin: 8px 24px;
+  }
 
-    #nav-burger {
-        display: none;
-    }
+  #nav-burger {
+    display: none;
+  }
 
-    nav {
-        max-height: fit-content;
-        display: flex;
-        background-color: transparent;
-        padding-right: 24px;
-        justify-content: end;
-        overflow: visible;
-    }
+  nav {
+    max-height: fit-content;
+    display: flex;
+    background-color: transparent;
+    padding-right: 24px;
+    justify-content: end;
+    overflow: visible;
+  }
 
-    nav ul li a {
-        font-size: 1rem;
-    }
+  nav ul li a {
+    font-size: 1rem;
+  }
 
-    #welcome>p {
-        font-size: 3.5rem;
-    }
+  #welcome > p {
+    font-size: 3.5rem;
+  }
 
-    section {
-        font-size: 1rem;
-        margin-left: 10%;
-        margin-right: 10%;
-    }
+  section {
+    font-size: 1rem;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 
-    section>div {
-        flex-wrap: nowrap;
-    }
+  section > div {
+    flex-wrap: nowrap;
+  }
 
-    .svg-bg>svg {
-        height: 5em;
-        width: 5em;
-    }
+  .svg-bg > svg {
+    height: 5em;
+    width: 5em;
+  }
 
-    .bundle:hover {
-        background-color: rgb(0, 150, 225);
-        transform: scale(1.1);
-        transition: 0.5s;
-    }
+  .bundle:hover {
+    background-color: rgb(0, 150, 225);
+    transform: scale(1.1);
+    transition: 0.5s;
+  }
 }
 
 /* Vista superior al de una tablet*/
-@media (min-width: 1024px) {}
-
-
-
-
+@media (min-width: 1024px) {
+}
 
 /* UNUSED */
 
 #promo-bg {
-    background-color: #0cacdd;
-    border-radius: 10px;
-    padding: 20px;
-    background-image: url("assets/images/casas-inteligentes.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: white;
-    height: auto;
+  background-color: #0cacdd;
+  border-radius: 10px;
+  padding: 20px;
+  background-image: url("assets/images/casas-inteligentes.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  height: auto;
 }
 
 #promo-bg:hover {
-    transition: 0.5s;
-    transform: scale(1.02);
+  transition: 0.5s;
+  transform: scale(1.02);
 }
