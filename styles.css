@@ -349,6 +349,26 @@ main section > div {
   flex-flow: wrap;
 }
 
+#collaboration {
+  margin: 0;
+  padding: 40px 20px;
+  background-color: #2aa4e3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#collaboration p {
+  font-size: 1.5rem;
+  font-weight: 100;
+  margin: 20px;
+}
+
+#collaboration div {
+  align-items: center;
+  gap: 20px;
+}
+
 .card {
   margin: 16px;
   width: 100%;
