@@ -316,14 +316,14 @@ header.scrolled {
   border-radius: 24px;
   padding: 12px 48px;
   text-transform: uppercase;
-  background-color: #52afe6; 
+  background-color: #52afe6;
   color: black;
   font-weight: 600;
   display: block;
 }
 
 #welcome > a > div:hover {
-  background-color: #2c4170; 
+  background-color: #2c4170;
   color: white;
   transition: 0.5s;
 }
@@ -332,6 +332,7 @@ main section {
   display: block;
   margin-top: 20px;
   margin-bottom: 20px;
+  padding: 8px;
   color: white;
   text-align: center;
 }
@@ -369,9 +370,38 @@ main section > div {
   gap: 20px;
 }
 
+#services > div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 8px;
+  grid-auto-rows: 1fr; /* Todas las filas tendrán la misma altura */
+}
+
+#services > h1 {
+  text-align: start;
+  font-weight: 600;
+}
+
+#services h2 {
+  text-align: start;
+  font-weight: 100;
+}
+
+#services h3 {
+  text-align: center;
+  font-weight: lighter;
+}
+
+#services .card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 8px;
+}
+
 .card {
-  margin: 16px;
   width: 100%;
+  align-self: stretch; /* Ajusta la altura al contenedor de acuerdo a la card mas alta */
 }
 
 .card img {
@@ -432,11 +462,11 @@ section > div p {
 }
 
 .svg-bg {
-  background-color: #2aa4e3;
+  background-color: #303642;
   display: inline-flex;
   border-radius: 100%;
-  padding: 24px;
-  margin: 16px;
+  padding: 16px;
+  margin: 8px;
 }
 
 .gallery {
@@ -590,9 +620,20 @@ footer h3 {
     flex-wrap: nowrap;
   }
 
+  #services > div {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  #services .card:hover {
+    transform: scale(1.05);
+    transition: 0.25s;
+  }
+
   .svg-bg > svg {
-    height: 5em;
-    width: 5em;
+    height: 2.5em;
+    width: 2.5em;
   }
 
   .bundle:hover {
