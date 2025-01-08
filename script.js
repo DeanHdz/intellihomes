@@ -53,6 +53,10 @@ document.querySelector('#overlay').addEventListener('click', () => {
     document.querySelector('#overlay').classList.remove('show');
 });
 
+//Manejo de la visualizacion de la fecha actual en el footer
+document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+
 //NO UTILIZADO
 
 //Manejo del navbar en vista celular

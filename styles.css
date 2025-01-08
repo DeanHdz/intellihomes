@@ -328,7 +328,7 @@ header.scrolled {
   transition: 0.5s;
 }
 
-section {
+main section {
   display: block;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -336,12 +336,12 @@ section {
   text-align: center;
 }
 
-section > svg {
+main section > svg {
   height: 4em;
   width: 4em;
 }
 
-section > div {
+main section > div {
   display: flex;
   justify-content: center;
   align-items: baseline;
@@ -445,7 +445,7 @@ footer {
   font-weight: 600;
 }
 
-footer > div {
+footer section {
   display: flex;
   padding: 16px;
   justify-content: space-between;
@@ -560,13 +560,13 @@ footer h3 {
     font-size: 3.5rem;
   }
 
-  section {
+  main section {
     font-size: 1rem;
     margin-left: 10%;
     margin-right: 10%;
   }
 
-  section > div {
+  main section > div {
     flex-wrap: nowrap;
   }
 
