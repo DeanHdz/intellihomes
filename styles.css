@@ -166,19 +166,6 @@ aside img {
   padding: 16px;
 }
 
-/*
-PALETA DE COLORES: 
-#F1F1F1
-#303030
-#52AFE6
-#737373
-#515151
-#2AA4E3
-#2C4170
-#C2CDD3
-#303642
-*/
-
 aside ul {
   list-style: none;
   display: flex;
@@ -370,6 +357,17 @@ main section > div {
   gap: 20px;
 }
 
+.brand {
+  opacity: 0; /* Invisible por defecto */
+  transform: translateY(20px); /* Posición inicial */
+  transition: opacity 0.6s ease, transform 0.6s ease; /* Transiciones */
+}
+
+.brand.visible {
+  opacity: 1; /* Aparece */
+  transform: translateY(0); /* Posición final */
+}
+
 #services > div {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -420,23 +418,26 @@ main section > div {
   text-align: start;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.freq > h3 {
-  font-style: italic;
-  quotes: "“" "”";
+.title{
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: #2c4170;
+  padding: 8px;
+  border-radius: 16px;
 }
 
-.freq > h3::before {
-  content: open-quote;
-}
-
-.freq > h3::after {
-  content: close-quote;
+.subtitle{
+  font-size: 1rem;
+  text-align: center;
+  margin: 16px 0;
 }
 
 .bundle:hover {
   background-color: rgb(0, 150, 225);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transition: 0.5s;
 }
 
@@ -467,6 +468,19 @@ section > div p {
   border-radius: 100%;
   padding: 16px;
   margin: 8px;
+}
+
+.freq > h3 {
+  font-style: italic;
+  quotes: "“" "”";
+}
+
+.freq > h3::before {
+  content: open-quote;
+}
+
+.freq > h3::after {
+  content: close-quote;
 }
 
 .gallery {
@@ -569,7 +583,7 @@ footer h3 {
     transform: scale(1.1) translateX(0); /* Sin zoom ni desplazamiento */
   }
   100% {
-    transform: scale(1.1) translateX(50%); /* Zoom máximo y desplazamiento final */
+    transform: scale(1.1) translateX(100%); /* Zoom máximo y desplazamiento final */
   }
 }
 
@@ -637,8 +651,7 @@ footer h3 {
   }
 
   .bundle:hover {
-    background-color: rgb(0, 150, 225);
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: 0.5s;
   }
 }
@@ -651,15 +664,23 @@ footer h3 {
 
 #promo-bg {
   background-color: #0cacdd;
-  border-radius: 10px;
+  border-radius: 16px;
   padding: 20px;
-  background-image: url("assets/images/casas-inteligentes.webp");
+  background-image: url("assets/images/GIFs/fireworks-cycle.gif");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: block;
   color: white;
   height: auto;
 }
+
+#promo-bg h3 {
+  text-align: center;
+  font-weight: 100;
+}
+
+
 
 #promo-bg:hover {
   transition: 0.5s;
