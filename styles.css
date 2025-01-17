@@ -66,9 +66,10 @@ header > div > div:last-child {
   min-height: 50px;
   object-fit: contain;
   transition: max-height 0.5s ease;
-  margin: 8px auto;
+  margin: 0 24px;
   background-color: #f1f1f1;
-  border-radius: 24px;
+  border-radius: 0 0 80px 80px;
+  padding-bottom: 10px;
 }
 
 nav {
@@ -248,6 +249,8 @@ header.scrolled {
 
 #logo.scrolled {
   max-height: 8vh;
+  border-radius: 24px;
+  padding: 4px;
 }
 
 #burger.scrolled {
@@ -597,10 +600,6 @@ footer h3 {
   header > div {
     display: flex;
     width: auto;
-  }
-
-  #logo {
-    margin: 8px 24px;
   }
 
   #nav-burger {
