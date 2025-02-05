@@ -63,11 +63,22 @@ document.querySelector('#overlay').addEventListener('click', () => {
     document.querySelector('#overlay').classList.remove('show');
 });
 
+//Logica para manejar la visualizacion de cada pregunta en la seccion de preguntas frecuentes
+const questions = document.querySelectorAll('.freq-card');
+questions.forEach((question) => {
+    question.addEventListener('click', () => {
+        questions.forEach((q) => {
+            if (q !== question) {
+                q.classList.remove('active');
+            }
+        });
+        question.classList.toggle('active');
+    });
+});
+
 
 //Manejo de la visualizacion de la fecha actual en el footer
 document.getElementById("currentYear").textContent = new Date().getFullYear();
-
-
 
 
 
@@ -90,3 +101,46 @@ function toggleNav() {
         nav.classList.remove('show');
     }
 });*/
+
+//Fuegos artificiales realistas
+function makeFullCircleFirework() {
+    const firework = document.createElement('div');
+    firework.classList.add('firework');
+    document.body.appendChild(firework);
+    const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    firework.style.backgroundColor = color;
+    const x = Math.random() * window.innerWidth;
+    const y = Math.random() * window.innerHeight;
+    firework.style.left = x + 'px';
+    firework.style.top = y + 'px';
+    setTimeout(() => {
+        firework.remove();
+    }, 2000);
+}
+
+function makeFirework() {
+    setInterval(() => {
+        makeFullCircleFirework();
+    }, 2000);
+}
+
+//Fuegos artificiales realistas de facebook
+/*
+function makeFullCircleFirework2(fire){
+    let color = randColor();
+    let velocity = Math.random() * 8 + 8;
+    let max = fireNumber * 3;
+    for (let i = 0; i < max; i++){
+        let rad = (i * 2 * Math.PI) / max;
+        let firework = {
+            x: fire.x, y: fire.y,
+            size: Math.random() + 1.5,
+            fill: color,
+            vx: Math.cos(rad) * velocity + (Math.random() - 0.5) * 0.5,
+            vy: Math.sin(rad) * velocity + (Math.random() - 0.5) * 0.5,
+            ay: 0.06, alpha: 1,
+            life: Math.round((Math.random() * range) / 2) + range / 1.5
+        };
+    }
+}*/

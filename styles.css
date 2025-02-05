@@ -11,6 +11,8 @@ PALETA DE COLORES:
 #303642
 */
 
+/* Por default todo es considerando un DISEÑO para CELULAR */
+
 * {
   margin: 0%;
   padding: 0%;
@@ -22,17 +24,28 @@ body {
   background-color: #52afe6;
 }
 
-/* Por default todo es considerando un DISEÑO para CELULAR */
-
 h1 {
   font-size: clamp(2rem, 5vw, 2.5rem);
 }
 
-h1,
-h2,
-h3 {
-  text-align: center;
-  margin-bottom: 20px;
+h2{
+  font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+h3{
+  font-size: clamp(1.25rem, 5vw, 1.75rem);
+}
+
+h4{
+  font-size: clamp(1rem, 5vw, 1.5rem);
+}
+
+h5{
+  font-size: clamp(0.75rem, 5vw, 1.25rem);
+}
+
+h6{
+  font-size: clamp(0.5rem, 5vw, 1rem);
 }
 
 header {
@@ -328,8 +341,13 @@ main section {
 }
 
 main section > svg {
-  height: 4em;
-  width: 4em;
+  height: 6em;
+  width: 6em;
+  background-color: #2aa4e3;
+  border-radius: 100%;
+  padding: 0 16px;
+  border: #2c4170 4px solid;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 main section > div {
@@ -382,16 +400,19 @@ main section > div {
 #services > h1 {
   text-align: start;
   font-weight: 600;
-}
-
-#services h2 {
-  text-align: start;
-  font-weight: 100;
+  margin-bottom: 20px;
 }
 
 #services h3 {
+  text-align: start;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+
+#services h5 {
   text-align: center;
   font-weight: lighter;
+  margin-bottom: 20px;
 }
 
 #services .card {
@@ -425,6 +446,7 @@ main section > div {
 }
 
 .title{
+  text-align: center;
   font-size: 1.5rem;
   font-weight: 600;
   background-color: #2c4170;
@@ -473,29 +495,87 @@ section > div p {
   margin: 8px;
 }
 
-.freq > h3 {
-  font-style: italic;
-  quotes: "“" "”";
+.freq-list{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.freq > h3::before {
-  content: open-quote;
+.freq-card {
+  position: relative;
+  width: 100%;
+  align-self: center;
+  background: #2AA4E3;
+  padding: 16px 32px;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 850px;
+  cursor: pointer;
 }
 
-.freq > h3::after {
-  content: close-quote;
+.freq-card.active {
+ 
+  color: white;
+}
+
+.freq-card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+}
+
+.arrow-up, .arrow-down {
+  position: absolute;
+  top: 24px;
+  right: 16px;
+  transition: transform 0.3s ease;
+}
+
+.arrow-up {
+  display: none; /* Oculta la flecha hacia abajo por defecto */
+}
+
+.freq-card.active .arrow-up {
+  display: block; /* Muestra la flecha hacia arriba si el contenedor está activo */
+}
+
+.freq-card.active .arrow-down {
+  display: none; /* Oculta la flecha hacia abajo si el contenedor está activo */
+}
+
+.freq-card.active .freq-desc {
+  display: flex; /* Muestra el contenido si el contenedor está activo */
+  animation: fadeIn-upwards 0.5s ease; /* Añade una animación de aparición */
+  flex-direction: column;
+  margin: 16px 0;
+}
+
+.freq-title{
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: start;
+}
+
+.freq-desc{
+  display: none; /* Oculta el contenido por defecto */
+}
+
+#galeria{
+  background-color: #2aa4e3;
+  border-radius: 0;
 }
 
 .gallery {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   justify-content: center;
   align-items: center;
   gap: 16px;
 }
 
 .column {
-  gap: 16px;
   flex-direction: column;
+  flex: 1;
 }
 
 .gallery-item :is(video, img) {
@@ -521,7 +601,6 @@ footer section {
 }
 
 footer > h1 {
-  font-size: 1.5rem;
   padding: 16px;
   margin-bottom: auto;
 }
@@ -538,12 +617,6 @@ footer > h1 {
   text-align: center;
   color: white;
   padding: 10px 15px;
-}
-
-footer h1,
-footer h2,
-footer h3 {
-  text-align: start;
 }
 
 #DeanHdz {
@@ -653,18 +726,23 @@ footer h3 {
     transform: scale(1.05);
     transition: 0.5s;
   }
+
+  #galeria{
+    border-radius: 24px;
+  }
 }
 
 /* Vista superior al de una tablet*/
 @media (min-width: 1024px) {
 }
 
-/* UNUSED */
+/* Utilizado para promociones */
 
 #promo-bg {
   background-color: #0cacdd;
   border-radius: 16px;
   padding: 20px;
+  margin: 20px 0;
   background-image: url("assets/images/GIFs/fireworks-cycle.gif");
   background-size: cover;
   background-position: center;
@@ -674,12 +752,9 @@ footer h3 {
   height: auto;
 }
 
-#promo-bg h3 {
-  text-align: center;
+#promo-bg h5 {
   font-weight: 100;
 }
-
-
 
 #promo-bg:hover {
   transition: 0.5s;
