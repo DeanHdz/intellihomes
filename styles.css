@@ -391,6 +391,7 @@ main section > div {
 
 #services > div {
   display: grid;
+  justify-self: center;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   padding: 8px;
@@ -415,15 +416,15 @@ main section > div {
   margin-bottom: 20px;
 }
 
+.card {
+  width: 100%;
+  align-self: stretch; /* Ajusta la altura al contenedor de acuerdo a la card mas alta */
+}
+
 #services .card {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
   padding: 8px;
-}
-
-.card {
-  width: 100%;
-  align-self: stretch; /* Ajusta la altura al contenedor de acuerdo a la card mas alta */
 }
 
 .card img {
@@ -434,10 +435,80 @@ main section > div {
   max-width: 100%;
 }
 
-.bundle {
-  background-color: #2aa4e3;
+#bundles > div{
+  margin-top: 40px;
+  gap: 64px;
+}
+
+.bundle{
+  position: relative;
+  color: black;
+  background: linear-gradient(45deg, #f1f1f1, #c2cdd3);
   padding: 24px;
-  margin: 16px;
+  border-radius: 24px;
+  text-align: start;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Borde negro para el bundle */
+.bundle::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(to bottom, black, rgba(255, 255, 255, 0));
+  border-radius: 28px; /* Igual a border-radius + grosor del pseudo-borde */
+  z-index: -1; /* Colocar el pseudo-elemento detrás del contenido */
+}
+
+.bundle-title{
+  color: #f1f1f1;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: #303030;
+  padding: 8px;
+  border-radius: 16px;
+}
+
+.bundle-old-price {
+  display: none;
+  margin-top: 16px;
+  color: red;
+  font-size: small;
+  text-decoration: line-through;
+}
+
+.bundle-new-price {
+  margin-top: 16px;
+  color: black;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.bundle-new-price::before{
+  content: 'MXN';
+  font-size: small;
+}
+
+.bundle-new-price::after{
+  content: '.00';
+  font-size: small;
+}
+
+.bundle-subtitle{
+  color: #303030;
+  font-size: 1rem;
+  text-align: center;
+  margin: 16px 0;
+}
+
+.bundle-premium{
+  position: relative;
+  background: linear-gradient(45deg, #2aa4e3, #2c4170);
+  padding: 24px;
   border-radius: 24px;
   text-align: start;
   justify-content: center;
@@ -445,46 +516,45 @@ main section > div {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.title{
+/* Borde blanco para el bundle premium */
+.bundle-premium::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0));
+  border-radius: 28px; /* Igual a border-radius + grosor del pseudo-borde */
+  z-index: -1; /* Colocar el pseudo-elemento detrás del contenido */
+}
+
+.badge{
   text-align: center;
-  font-size: 1.5rem;
-  font-weight: 600;
+  position: absolute;
+  top: -48px;
+
+  /*Centrar el badge*/
+  left: 50%;
+  transform: translateX(-50%);
+  
   background-color: #2c4170;
+  border: white 3px solid;
+  color: white;
   padding: 8px;
   border-radius: 16px;
-}
-
-.subtitle{
-  font-size: 1rem;
-  text-align: center;
-  margin: 16px 0;
-}
-
-.bundle:hover {
-  background-color: rgb(0, 150, 225);
+  font-weight: 600;
+  font-size: 0.75rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  transition: 0.5s;
 }
 
-.bundle p:nth-last-child(2) {
-  margin-top: 16px;
-  color: gold;
-  text-decoration: line-through;
-  font-size: medium;
-  text-align: center;
-  font-weight: bold;
+.bundle-premium .bundle-title{
+  color: #f1f1f1;
+  background-color: #2aa4e3;
 }
 
-.bundle p:last-child {
-  margin-top: 16px;
-  color: gold;
-  font-size: larger;
-  text-align: center;
-  font-weight: bold;
-}
-
-section > div p {
-  text-align: justify;
+.bundle-premium .bundle-new-price, .bundle-premium .bundle-subtitle {
+  color: white;
 }
 
 .svg-bg {
@@ -515,7 +585,6 @@ section > div p {
 }
 
 .freq-card.active {
- 
   color: white;
 }
 
@@ -697,9 +766,8 @@ footer > h1 {
   }
 
   main section {
-    font-size: 1rem;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
   }
 
   main section > div {
@@ -722,9 +790,9 @@ footer > h1 {
     width: 2.5em;
   }
 
-  .bundle:hover {
-    transform: scale(1.05);
-    transition: 0.5s;
+  #bundles > div{
+    margin-top: 60px;
+    gap: 20px;
   }
 
   #galeria{
@@ -760,3 +828,11 @@ footer > h1 {
   transition: 0.5s;
   transform: scale(1.02);
 }
+
+
+/*
+<div id="promo-bg">
+  <h3>¡Feliz año nuevo!</h3>
+  <h5>Empieza bien el año aprovechando precios con descuento (Solo por temporada).</h5>
+</div> 
+*/
